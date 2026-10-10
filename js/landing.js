@@ -1,4 +1,4 @@
-// Patchwork landing page: intentionally dependency-free.
+// Gobbo landing page: intentionally dependency-free.
 document.addEventListener('DOMContentLoaded', () => {
   // In a repository fork, replace the generic GitHub link with your repository URL.
   const sourceLinks = document.querySelectorAll('a[href="https://github.com/"]');

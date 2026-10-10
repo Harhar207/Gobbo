@@ -1,4 +1,4 @@
-# Product brief — Patchwork
+# Product brief — Gobbo
 
 ## One-line description
 A privacy-first workspace to make coding-agent prompts clearer and extract practical lessons from text/JSONL session logs.

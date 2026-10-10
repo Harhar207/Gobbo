@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution to Patchwork.
+Thanks for considering a contribution to Gobbo.
 
 ## Good first contributions
 - Add a synthetic fixture for a public, documented event format.
