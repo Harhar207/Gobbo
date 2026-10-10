@@ -1,4 +1,4 @@
-  /* Gobbo MVP — browser-only prompt coach and coding-agent log analyzer.
+  /* GobboAI MVP — browser-only prompt coach and coding-agent log analyzer.
  * No network calls, analytics, or external runtime dependencies are used.
  */
 (() => {
@@ -127,7 +127,7 @@
     try { await copyText($('enhanced-output').value); showToast('Prompt copied to clipboard.'); }
     catch { showToast('Copy failed. Select the prompt and copy it manually.'); }
   });
-  $('download-prompt').addEventListener('click', () => downloadText('gobbo-enhanced-prompt.txt', $('enhanced-output').value));
+  $('download-prompt').addEventListener('click', () => downloadText('gobboai-enhanced-prompt.txt', $('enhanced-output').value));
 
   // Parse a mixed JSONL/plain-text session without assuming any vendor-specific schema.
   const ERROR_RE = /\b(error|exception|failed|failure|traceback|timed out|timeout|not found|cannot read|permission denied|fatal)\b/i;
@@ -249,11 +249,11 @@
     const a = appState.lastAnalysis;
     if (!a) return;
     const lines = [
-      'GOBBO SESSION ANALYSIS', '=======================', '',
+      'GOBBOAI SESSION ANALYSIS', '=========================', '',
       `Non-empty lines/events: ${a.entries.length}`, `Error signals: ${a.errorCount}`, `Warning/retry signals: ${a.warningCount}`, `Tool-like lines: ${a.toolCount}`, `Approximate tokens (characters / 4): ${a.roughTokens}`, `JSONL records parsed: ${a.parsedJson}`, `Unique filename references: ${a.uniqueFiles.length}`, '',
       'INSIGHTS', ...a.insights.map((i) => `- ${i.title}: ${i.detail}`), '', 'RECOMMENDATIONS', ...a.recommendations.map((r) => `- ${r.title}: ${r.text}`), '',
       'LIMITATION: Pattern-based estimate. Not vendor-specific telemetry. Review the source log and validate findings independently.'
     ];
-    downloadText('gobbo-session-report.txt', lines.join('\n'));
+    downloadText('gobboai-session-report.txt', lines.join('\n'));
   });
 })();
