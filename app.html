@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Improve AI coding prompts and analyze coding-agent logs locally in your browser.">
+  <meta name="theme-color" content="#10151d">
+  <title>Workspace — Patchwork</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body class="app-page">
+  <header class="app-header">
+    <a class="brand" href="index.html"><span class="brand-mark">p<span>·</span></span><span>patchwork</span></a>
+    <div class="app-header-right"><span class="local-status"><i></i> LOCAL MODE</span><a href="index.html" class="back-link">← Home</a></div>
+  </header>
+  <main class="workspace wrap">
+    <aside class="sidebar">
+      <div class="sidebar-label">WORKSPACE</div>
+      <a class="side-link active" href="#prompt-coach" data-view="prompt-coach"><span>✳</span> Prompt coach</a>
+      <a class="side-link" href="#session-analyzer" data-view="session-analyzer"><span>⌁</span> Session analyzer</a>
+      <div class="sidebar-bottom"><div class="sidebar-card"><div class="sidebar-card-mark">◎</div><b>Private by default</b><p>Everything runs in this browser tab. No uploads to a server.</p></div><span class="version-label">PROTOTYPE 0.1.0</span></div>
+    </aside>
+
+    <section class="work-area">
+      <section class="tool-view active" id="prompt-coach" data-panel="prompt-coach">
+        <div class="page-title-row"><div><div class="eyebrow">WORKFLOW 01</div><h1>Prompt coach<span class="title-period">.</span></h1><p class="page-subtitle">Turn an idea into a clear brief your coding agent can act on.</p></div><span class="pill">HEURISTIC MODE</span></div>
+        <div class="notice"><span>✳</span><p><b>No magic, just structure.</b> This prototype improves prompts using a local template. It doesn't call an AI model or guarantee a better result.</p></div>
+        <div class="panel prompt-panel">
+          <div class="panel-heading"><div><span class="step-number">1</span><h2>Describe the task</h2></div><button class="text-button" id="load-prompt-example" type="button">Load an example ↗</button></div>
+          <label for="prompt-input">Your rough prompt</label>
+          <textarea id="prompt-input" rows="5" placeholder="e.g. Fix the retry logic in the payment service. It sometimes charges twice after a timeout..." spellcheck="true"></textarea>
+          <div class="field-grid">
+            <div><label for="task-type">Task type</label><select id="task-type"><option value="general">General engineering task</option><option value="bug">Debug / bug fix</option><option value="feature">New feature</option><option value="refactor">Refactoring</option><option value="review">Code review</option><option value="test">Testing</option><option value="performance">Performance</option></select></div>
+            <div><label for="detail-level">Output detail</label><select id="detail-level"><option value="balanced">Balanced</option><option value="concise">Concise</option><option value="thorough">Thorough</option></select></div>
+          </div>
+          <div class="panel-actions"><span class="hint-text">Tip: mention the relevant files, expected behavior, and failure you see.</span><button class="button button-primary" id="enhance-prompt" type="button">Structure my prompt <span>→</span></button></div>
+        </div>
+        <div class="panel result-panel" id="prompt-result-panel" hidden>
+          <div class="panel-heading"><div><span class="step-number step-number-done">2</span><h2>Review your improved prompt</h2></div><span class="ready-label"><i></i> READY TO EDIT</span></div>
+          <div class="quality-row"><div><span class="quality-label">PROMPT COMPLETENESS</span><div class="quality-meter"><span id="quality-meter-fill"></span></div></div><div class="quality-number"><strong id="quality-score">—</strong><span>/ 100</span></div><span class="quality-explainer" id="quality-summary">Based on a few practical signals</span></div>
+          <label for="enhanced-output">Enhanced prompt <span class="label-side">Editable before copying</span></label>
+          <textarea id="enhanced-output" rows="14" spellcheck="true"></textarea>
+          <div class="panel-actions"><span class="hint-text" id="prompt-word-count">0 words</span><div class="button-row"><button class="button button-secondary" id="download-prompt" type="button">Download .txt</button><button class="button button-primary" id="copy-prompt" type="button">Copy prompt <span>↗</span></button></div></div>
+          <div class="checklist" id="prompt-checklist"><b>Signals detected</b><div id="checklist-items"></div></div>
+        </div>
+      </section>
+
+      <section class="tool-view" id="session-analyzer" data-panel="session-analyzer" hidden>
+        <div class="page-title-row"><div><div class="eyebrow">WORKFLOW 02</div><h1>Session analyzer<span class="title-period">.</span></h1><p class="page-subtitle">Look for errors, tool activity, and repetition in a coding-agent log.</p></div><span class="pill">LOCAL ANALYSIS</span></div>
+        <div class="notice"><span>⌁</span><p><b>Best-effort parsing.</b> This tool looks for common text patterns and JSONL fields. Different agents have different log formats, so treat metrics as estimates, not authoritative telemetry.</p></div>
+        <div class="panel analyzer-input-panel">
+          <div class="panel-heading"><div><span class="step-number">1</span><h2>Add a session</h2></div><div class="button-row"><button class="text-button" id="load-sample" type="button">Load sample data ↗</button><label class="button button-secondary upload-button" for="log-file">Choose file</label><input id="log-file" type="file" accept=".jsonl,.json,.log,.txt,text/plain,application/json" hidden></div></div>
+          <label for="log-input">Paste log text or JSONL</label>
+          <textarea id="log-input" rows="9" placeholder='Paste a log here, or select “Load sample data”. JSONL and plain-text logs are supported.' spellcheck="false"></textarea>
+          <div class="panel-actions"><span class="hint-text" id="log-input-status">No session loaded yet</span><button class="button button-primary" id="analyze-session" type="button">Analyze session <span>→</span></button></div>
+        </div>
+        <div id="analysis-results" hidden>
+          <div class="metrics-grid">
+            <article class="metric-card"><span class="metric-label">LINES / EVENTS</span><strong id="metric-events">0</strong><span class="metric-foot">Non-empty lines</span></article>
+            <article class="metric-card"><span class="metric-label">ERROR SIGNALS</span><strong id="metric-errors">0</strong><span class="metric-foot" id="metric-error-foot">Pattern matches</span></article>
+            <article class="metric-card"><span class="metric-label">TOOL SIGNALS</span><strong id="metric-tools">0</strong><span class="metric-foot">Tool-like mentions</span></article>
+            <article class="metric-card"><span class="metric-label">EST. TEXT TOKENS</span><strong id="metric-tokens">0</strong><span class="metric-foot">Characters ÷ 4, rough only</span></article>
+          </div>
+          <div class="results-grid">
+            <section class="panel"><div class="panel-heading"><div><span class="step-number">2</span><h2>What stands out</h2></div></div><div id="insights-list" class="insights-list"></div></section>
+            <section class="panel"><div class="panel-heading"><div><span class="step-number">3</span><h2>Activity breakdown</h2></div></div><div id="activity-breakdown" class="activity-breakdown"></div><div class="chart-legend"><span><i class="legend-error"></i> Errors / warnings</span><span><i class="legend-tool"></i> Tool mentions</span></div></section>
+          </div>
+          <section class="panel recommendations-panel"><div class="panel-heading"><div><span class="step-number">4</span><h2>Ideas for your next run</h2></div></div><div id="recommendations-list" class="recommendations-list"></div></section>
+          <div class="export-row"><span class="hint-text">Analysis happens in this tab. Nothing is uploaded.</span><button class="button button-secondary" id="download-report" type="button">Download text report ↓</button></div>
+        </div>
+      </section>
+      <footer class="workspace-footer"><span>Patchwork is an independent open-source experiment.</span><span>Made for learning, not production telemetry.</span></footer>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

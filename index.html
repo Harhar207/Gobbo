@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A privacy-first workspace to make AI coding prompts clearer and understand coding-agent sessions. Runs locally in your browser.">
+  <meta name="theme-color" content="#10151d">
+  <title>Patchwork — AI Coding Efficiency Coach</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="marketing-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Patchwork home"><span class="brand-mark">p<span>·</span></span><span>patchwork</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a class="nav-cta" href="app.html">Open the prototype <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> An open-source experiment for AI developers</div>
+        <h1>Make your coding agent work <em>smarter.</em></h1>
+        <p class="hero-lede">Turn vague requests into sharper prompts. Turn agent logs into practical lessons. A lightweight coach for the way you already build software.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="app.html">Try the free prototype <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="https://github.com/" target="_blank" rel="noopener">Explore the source <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-proof"><span class="avatar-stack"><b>p</b><b>⌘</b><b>λ</b></span><span>Free to run · No API key · Your text stays in your browser</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Decorative preview of the Patchwork dashboard">
+        <div class="mock-window">
+          <div class="mock-top"><div class="window-dots"><i></i><i></i><i></i></div><span>patchwork / prompt coach</span><span class="mock-tag">LOCAL MODE</span></div>
+          <div class="mock-content">
+            <div class="mock-label">YOUR ORIGINAL PROMPT</div>
+            <div class="mock-original">Fix the bug in the checkout flow.</div>
+            <div class="mock-arrow">↓ <span>context added</span></div>
+            <div class="mock-label green-label">A MORE USEFUL PROMPT</div>
+            <div class="mock-result"><b>Goal</b><br>Find and fix the checkout bug without changing unrelated behavior.<br><br><b>Constraints</b><br>Trace the failing path first. Keep the patch minimal.<br><br><b>Acceptance criteria</b><br>Explain the root cause and add a regression test.</div>
+            <div class="mock-footer"><span>✓ Goal clarified</span><span>✓ Tests requested</span><span>✓ Scope bounded</span></div>
+          </div>
+        </div>
+        <div class="float-note note-top"><span class="note-icon">✳</span><span><b>Prompt quality</b><small>More context, less guesswork</small></span></div>
+        <div class="float-note note-bottom"><span class="note-icon note-icon-blue">⌁</span><span><b>Session insights</b><small>Spot repeated errors & tool loops</small></span></div>
+      </div>
+    </section>
+
+    <section class="signal-strip"><div class="wrap signal-inner"><span>BUILT FOR THE REALITY OF AI-ASSISTED SOFTWARE WORK</span><div><b>Claude Code</b><i></i><b>Codex</b><i></i><b>Cursor</b><i></i><b>Any text or JSONL log</b></div></div></section>
+
+    <section class="section wrap" id="features">
+      <div class="section-heading"><div class="eyebrow">ONE SMALL WORKSPACE</div><h2>Better inputs. Better feedback loops.</h2><p>Start with two workflows that help you learn from your own coding-agent usage.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card feature-prompt"><div class="feature-icon">✳</div><div class="feature-kicker">01 / PROMPT COACH</div><h3>Say what you mean, clearly.</h3><p>Reshape a rough task into a structured brief with context, constraints, steps, and acceptance criteria. Edit the result before you copy it into your coding agent.</p><a href="app.html#prompt-coach">Improve a prompt <span>→</span></a><div class="feature-decoration prompt-lines"><span>GOAL</span><span>CONTEXT</span><span>CONSTRAINTS</span><span>ACCEPTANCE</span></div></article>
+        <article class="feature-card feature-session"><div class="feature-icon">⌁</div><div class="feature-kicker">02 / SESSION ANALYZER</div><h3>Learn from the work.</h3><p>Inspect a pasted log or JSONL file for tool activity, errors, repeated failure signals, and approximate text size. Use the findings to improve the next run.</p><a href="app.html#session-analyzer">Analyze a session <span>→</span></a><div class="mini-chart" aria-hidden="true"><span style="height:30%"></span><span style="height:50%"></span><span style="height:37%"></span><span style="height:75%"></span><span style="height:55%"></span><span style="height:91%"></span><span style="height:66%"></span><span style="height:100%"></span><span style="height:72%"></span><span style="height:83%"></span><span style="height:48%"></span><span style="height:68%"></span></div></article>
+      </div>
+    </section>
+
+    <section class="privacy-section" id="privacy"><div class="wrap privacy-inner"><div class="privacy-symbol">◎</div><div><div class="eyebrow">PRIVATE BY DEFAULT</div><h2>Your code context belongs to you.</h2><p>The prototype uses browser-side heuristics. It doesn't send prompts or logs to a server, and it doesn't require an API key. Don't paste secrets into any tool unless you have reviewed how it handles data.</p></div><div class="privacy-points"><span>✓ No account required</span><span>✓ No backend server</span><span>✓ Free static hosting</span></div></div></section>
+
+    <section class="bottom-cta wrap"><div><div class="eyebrow">A USEFUL FIRST VERSION</div><h2>Try it on a real task today.</h2><p>Use the sample data first, then test it against a session you can safely share.</p></div><a class="button button-primary" href="app.html">Open Patchwork <span aria-hidden="true">→</span></a></section>
+  </main>
+  <footer class="site-footer wrap"><a class="brand" href="index.html"><span class="brand-mark">p<span>·</span></span><span>patchwork</span></a><span>Open-source starter · Built as a browser-only prototype</span><a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a></footer>
+  <script src="js/landing.js" defer></script>
+</body>
+</html>
