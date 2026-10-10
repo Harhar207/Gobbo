@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution to Gobbo.
+Thanks for considering a contribution to GobboAI.
 
 ## Good first contributions
 - Add a synthetic fixture for a public, documented event format.

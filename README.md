@@ -1,11 +1,11 @@
-# Gobbo — AI Coding Efficiency Coach
+# GobboAI — AI Coding Efficiency Coach
 
 A browser-only prototype for two practical workflows:
 
 1. **Prompt coach:** turn a rough engineering request into a clearer, editable task brief with context, constraints, steps, and acceptance criteria.
 2. **Session analyzer:** inspect pasted text/JSONL coding-agent logs for common error signals, tool-like mentions, file references, and rough text-size estimates.
 
-Gobbo is intentionally a static site: no backend, no API key, no build step, and no required account. Your prompt and pasted log content are processed in your browser tab. This is a learning prototype, not official Claude/Codex/Cursor telemetry and not a production-grade evaluator.
+GobboAI is intentionally a static site: no backend, no API key, no build step, and no required account. Your prompt and pasted log content are processed in your browser tab. This is a learning prototype, not official Claude/Codex/Cursor telemetry and not a production-grade evaluator.
 
 ## Run locally
 
@@ -23,7 +23,7 @@ Then visit <http://localhost:8000>. Node.js is not required.
 
 ### GitHub Pages
 
-1. Create a new **public** GitHub repository (for example, `gobbo-ai-coding-coach`). Do not upload credentials, work logs, or private company code.
+1. Create a new **public** GitHub repository (for example, `gobboai-coding-coach`). Do not upload credentials, work logs, or private company code.
 2. Copy the contents of this folder into the repository root and commit them.
 3. Open **Settings → Pages**.
 4. Under build/deployment, select **Deploy from a branch**, choose `main` and `/(root)`, and save.
